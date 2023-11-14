@@ -25,8 +25,9 @@ const CalendarConverter = () => {
         const day = splitDate[2]
         const payload = { year, month, day };
         console.log(date.split("-"))
-
-        const api = "http://localhost:8080/api/calendar/" + (calendarType === 'solar' ? 'lunar' : 'solar')
+        console.log(process.env.REACT_APP_SYPG_BASE_URL)
+        const api = process.env.REACT_APP_SYPG_BASE_URL + "/api/calendar/"
+            + (calendarType === 'solar' ? 'lunar' : 'solar')
         console.log(api)
         axios.post(api, payload)
             .then(response => {

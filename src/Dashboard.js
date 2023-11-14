@@ -8,7 +8,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/toy-project');
+                const response = await axios.get(process.env.REACT_APP_SYPG_BASE_URL + '/api/toy-project');
                 setProjects(response.data);
             } catch (error) {
                 console.error('Error fetching data: ', error);
